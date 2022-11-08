@@ -4,19 +4,22 @@ import java.util.Scanner;
 
 public class UsingTryCatch {
     public static void main(String[] args) {
-        System.out.println("Please enter a number between 0 - 9 : ");
         Scanner myScan = new Scanner(System.in);
-        try {
-            int myNum = myScan.nextInt();
+        while(true) {
+            try {
+                System.out.println("Please enter a number between 0 - 9 : ");
+                int myNum = myScan.nextInt();
 
-            if (myNum <= 9 && myNum > 0) {
-                System.out.println("You entered " + myNum);
-            } else {
-                System.out.println("Not a valid number");
+                if (myNum <= 9 && myNum > 0) {
+                    System.out.println("You entered " + myNum);
+                    break;
+                } else {
+                    System.out.println("Not a valid number");
+                }
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Error Caught: " + e);
+                myScan.next();
             }
-        }
-        catch(java.util.InputMismatchException e){
-            System.out.println("Error Caught: " + e);
         }
     }
 }
